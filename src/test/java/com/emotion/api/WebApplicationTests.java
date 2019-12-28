@@ -1,4 +1,4 @@
-package com.emotion.web;
+package com.emotion.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
