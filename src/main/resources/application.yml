@@ -1,0 +1,33 @@
+spring:
+  port: 8080
+  datasource:
+    tomcat:
+      validation-query: /* ping */ SELECT 1;
+      test-on-borrow: true
+      testWhileIdle: true
+      max-wait: 30000
+      max-active: 400
+    username: root
+    password: 1111
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://13.209.55.125:3306/emotions?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=UTC
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        jdbc:
+          time_zone: UTC
+          batch_size: 200
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: create
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: html
+  data:
+    rest:
+      base-path: /v1

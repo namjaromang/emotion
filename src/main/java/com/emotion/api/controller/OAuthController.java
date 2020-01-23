@@ -1,5 +1,6 @@
 package com.emotion.api.controller;
 
+import com.emotion.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @Controller
 public class OAuthController {
+
     @Autowired
     UserService userService;
 
@@ -21,4 +23,5 @@ public class OAuthController {
     public Map<String, Object> userInfo() throws IOException, GeneralSecurityException {
         return userService.getUserInfo();
     }
+
 }
