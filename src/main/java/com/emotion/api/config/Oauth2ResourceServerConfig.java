@@ -47,7 +47,7 @@ public class Oauth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("one-duty").tokenStore(tokenStore());
+        resources.resourceId("emotion").tokenStore(tokenStore());
     }
 
     @Bean

@@ -1,6 +1,6 @@
 package com.emotion.api.security;
 
-import com.emotion.api.model.UserEntity;
+import com.emotion.api.entity.UserEntity;
 import com.emotion.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -17,6 +17,7 @@ public class CustomTokenEnhancer implements TokenEnhancer {
 
     private final UserRepository userRepository;
 
+
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         Object obj = authentication.getPrincipal();
@@ -25,7 +26,7 @@ public class CustomTokenEnhancer implements TokenEnhancer {
             User user = (User) obj;
             email = user.getUsername();
         }
-        UserEntity userEntity = userRepository.findTopByEmailAndIsEnabledIsTrueAndEmailVerifiedIsTrueAndWithdrawIsFalseOrderByEmailVerifiedDesc(email).orElse(null);
+        UserEntity userEntity = userRepository.findTopByEmailAndWithdrawIsFalse(email).orElse(null);
 
         Map<String, Object> info = new HashMap();
         info.put("uid", userEntity.getUserId());

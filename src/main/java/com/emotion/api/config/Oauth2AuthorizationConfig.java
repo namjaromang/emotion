@@ -45,6 +45,7 @@ public class Oauth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private ClientDetailsService clientDetailsService;
 
+
     /**
      * 클라이언트 정보 주입 방식을 jdbcdetail로 변경
      */

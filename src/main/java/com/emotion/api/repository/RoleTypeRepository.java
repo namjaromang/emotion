@@ -1,6 +1,6 @@
 package com.emotion.api.repository;
 
-import com.emotion.api.model.RoleTypeEntity;
+import com.emotion.api.entity.RoleTypeEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;

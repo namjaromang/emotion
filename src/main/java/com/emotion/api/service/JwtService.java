@@ -1,5 +1,4 @@
 package com.emotion.api.service;
-
 import com.emotion.api.utility.JwtUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +22,7 @@ import io.micrometer.core.instrument.util.IOUtils;
 @Service
 @AllArgsConstructor
 public class JwtService {
+
     public Map<String, Object> getJwtInfo() throws IOException, GeneralSecurityException {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         String jwt = request.getHeader("Authorization");
