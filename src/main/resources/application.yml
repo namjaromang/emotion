@@ -29,3 +29,40 @@ spring:
   data:
     rest:
       base-path: /v1
+
+
+
+---
+log4jdbc.spylogdelegator.name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+log4jdbc.dump.sql.maxlinelength: 0
+---
+app.jwtSecret: JWTSuperSecretKey
+app.jwtExpirationInMs: 1800000
+app.jwt.claims.refresh.name: Refresh
+---
+logging:
+  file: logs/application.log
+  level:
+    org.springframework.web: INFO
+    org.springframework.data.rest: INFO
+---
+spring.profiles: logging-info
+logging:
+  file: logs/application.log
+  level:
+    org.springframework.web: INFO
+    org.springframework.data.rest: INFO
+---
+spring.profiles: logging-debug
+logging:
+  file: logs/application.log
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.data.rest: DEBUG
+
+---
+spring.profiles: logging-daily
+logging:
+  config: classpath:logback-spring.xml
+
+---
